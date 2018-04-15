@@ -1,0 +1,24 @@
+<div>
+  <div class="card border-info row m-2">
+    <div class="card-header">
+      <div class="card-title text-center bg-info p-3 text-light">
+        Posts<span *ngIf="this.posts$" class="badge-warning">{{this.postService.posts$.length | async}}</span>
+      </div>
+    </div>
+    <hr>
+    <div class="card-body">
+      <div *ngIf="this.postsService.posts$">
+        <ul class="list-group" *ngFor="let post of this.postsService.posts$ | async ; let i = index">
+          <li
+            class="list-group-item border-dark m-2 "
+            [ngClass]="{
+              'bg-success text-light' : i%2==0
+            }"
+          >
+            {{post.title}} <span (click)="delete(post.id)" class="btn btn-outline-danger float-right">X</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

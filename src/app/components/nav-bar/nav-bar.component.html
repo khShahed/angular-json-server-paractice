@@ -1,0 +1,8 @@
+<nav class="navbar bg-dark text-light  mb-2">
+  <span class="navbar-text text-center display-4">
+    Posts
+    <span *ngIf="this.postService.posts$ | async; let posts" class="badge badge-warning">
+      {{posts.length}}
+    </span>
+  </span>
+</nav>

@@ -1,0 +1,19 @@
+<div>
+  <div class="card border-info row m-2">
+    <div class="card-header">
+      <div class="card-title text-center bg-info p-3 text-light">
+        Posts
+      </div>
+    </div>
+    <hr>
+    <div class="card-body">
+      <div *ngIf="this.postsService.posts$">
+        <ul class="list-group" *ngFor="let post of this.postsService.posts$ | async">
+          <li class="list-group-item border-dark m-2">
+            {{post.title}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
